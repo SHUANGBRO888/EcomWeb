@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en", xmlns: th="http://www.thymeleaf.com">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Items</title>
+    <link rel="stylesheet" type="text/css" href="/css/admin.css"/>
+</head>
+<body>
+<table class = "table_list">
+    <tr class = "title">
+        <th>Item ID</th>
+        <th>Picture</th>
+        <th>Item Name</th>
+        <th>Price Name</th>
+        <th>Place of Production</th>
+        <th>Date of Production</th>
+        <th>Category</th>
+        <th>Edit</th>
+    </tr>
+    <th:block th:each="i : ${itemsList}">
+        <tr>
+            <td th:text="${i.goodsID}"></td>
+            <td>
+                <img th:src="${i.picture}" width="50" height="80"/>
+            </td>
+            <td th:text="${i.goodsName}"></td>
+            <td th:text="${i.price}"></td>
+            <td th:text="${i.address}"></td>
+            <td th:text="${#dates.format(i.produceDate, 'yyyy-MM-dd')}"></td>
+            <td th:text="${i.category.categoryName}"></td>
+            <td>
+                <a th:href="@{/admin/items/edit_show(goodsID=${i.goodsID})}">Edit</a>
+            </td>
+        </tr>
+    </th:block>
+    <tr>
+        <td colspan ="8">
+            <a href="/admin/items/add_show">Add Item</a>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

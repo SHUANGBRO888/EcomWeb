@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.ecom.mapper.WebUserMapper">
+    <select id = "find" parameterType="WebUser" resultType="WebUser">
+        select userId, userName, password, flag
+        from webUser
+        where userName = #{userName} and password = #{password}
+    </select>
+
+    <insert id="create" parameterType="WebUser">
+        insert into webUser (userEmail, userName, password, flag)
+        values (#{userEmail}, #{userName}, #{password}, #{flag})
+    </insert>
+</mapper>

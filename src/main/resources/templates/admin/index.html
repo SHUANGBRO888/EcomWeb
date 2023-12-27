@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/css/admin.css"/>
+    <style type="text/css">
+        html, body {
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+  <div class="container">
+      <div class="top">
+          <h3>
+              <span>
+                  Hello,
+                  <th:block th:text="${session.adminUser.userName}"></th:block>
+              </span>
+              <span>
+                  <a href="/admin/logout"><button type="button">Log out</button></a>
+              </span>
+              <span>|</span>
+              <span>
+                  <a href="/"><button type="button">Back to Homepage</button></a>
+              </span>
+          </h3>
+      </div>
+      <div class="main">
+          <div class="left">
+              <ul>
+                  <li>
+                      <a href="javascript:void(0)">Web Management</a>
+                      <ul>
+                          <li><a href="/admin/category/list" target = "content">Search Category</a></li>
+                          <li><a href="/admin/category/add_show" target = "content">Add Category</a></li>
+                          <li><a href="/admin/items/list" target = "content">Search Items</a></li>
+                          <li><a href="/admin/items/add_show" target = "content">Add Items</a></li>
+                      </ul>
+                  </li>
+              </ul>
+          </div>
+          <div class="right">
+              <iframe src="/admin/welcome" name="content"></iframe>
+          </div>
+      </div>
+  </div>
+</body>
+</html>

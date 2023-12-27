@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <link rel="stylesheet" type="text/css" href="/css/webUserSignUp.css"/>
+</head>
+<body>
+<div class="signup-form">
+    <h2>Sign Up</h2>
+    <form id="signupForm" action="/user/signUp_submit" method="post">
+        <p th:if="${error}" th:text="${error}" style="color: red;"></p>
+
+        <div class="form-group">
+            <label for="userName">Username:</label>
+            <input type="text" id="userName" name="userName" required="required"/>
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required="required"/>
+        </div>
+        <div class="form-group">
+            <label for="confirmPassword">Confirm Password:</label>
+            <input type="password" id="confirmPassword" required="required"/>
+        </div>
+        <div class="form-group">
+            <label for="userEmail">Email:</label>
+            <input type="email" id="userEmail" name="userEmail" required="required"/>
+        </div>
+        <span id="passwordError" style="color:red; display:none;">Passwords do not match.</span>
+        <div class="form-group">
+            <input type="submit" value="Sign Up"/>
+        </div>
+        <div class="form-group">
+            <a href="/" class="return-home-link"><button type="button">Back to Homepage</button></a>
+        </div>
+    </form>
+</div>
+<script>
+    document.getElementById('signupForm').onsubmit = function() {
+        var password = document.getElementById('password').value;
+        var confirmPassword = document.getElementById('confirmPassword').value;
+        if (password !== confirmPassword) {
+            document.getElementById('passwordError').style.display = 'block';
+            return false;
+        }
+    };
+</script>
+</body>
+</html>
+
+
+
+

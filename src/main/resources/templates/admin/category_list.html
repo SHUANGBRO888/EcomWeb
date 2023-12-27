@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en", xmlns: th="http://www.thymeleaf.com">
+<head>
+    <meta charset="UTF-8">
+    <title>Item Category</title>
+    <link rel="stylesheet" type="text/css" href="/css/admin.css"/>
+</head>
+<body>
+    <table class = "table_list">
+        <tr class = "title">
+            <th>Category ID</th>
+            <th>Category Name</th>
+            <th>Edit</th>
+        </tr>
+        <th:block th:each="c : ${categoryList}">
+            <tr>
+                <td th:text="${c.categoryID}"></td>
+                <td th:text="${c.categoryName}"></td>
+                <td>
+                    <a th:href="@{/admin/category/edit_show(categoryID=${c.categoryID})}">Edit</a>
+                </td>
+            </tr>
+        </th:block>
+        <tr>
+            <td colspan ="3">
+                <a href="/admin/category/add_show">Add Category</a>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

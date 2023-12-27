@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en", xmlns:th="http://www.thymeleaf.com">
+<head>
+  <meta charset="UTF-8">
+  <title>Sub Page</title>
+  <link type="text/css" rel="stylesheet" href="/css/front.css"/>
+</head>
+<body>
+<div th:include="/front/top::top"></div>
+<div id="container">
+  <ul>
+    <th:block th:each="i:${itemsList}">
+      <li>
+        <img th:src="${i.picture}"/>
+        <div class="info">
+          <p>
+            Name:
+            <span th:text="${i.goodsName}"></span>
+          </p>
+          <p>
+            Price:
+            <span th:text="${#numbers.formatCurrency(i.price)}"></span>
+          </p>
+          <p>
+            Place of Production:
+            <span th:text="${i.address}"></span>
+          </p>
+          <p>
+            Date of Production:
+            <span th:text="${#dates.format(i.produceDate,'yyyy-MM-dd')}"></span>
+          </p>
+        </div>
+      </li>
+    </th:block>
+  </ul>
+</div>
+</body>
+</html>

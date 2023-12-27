@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en", xmlns:th="http://www.thymeleaf.com">
+<head>
+    <meta charset="UTF-8">
+    <title>Top Page</title>
+</head>
+<body>
+    <div id="top" th:fragment="top">
+        <div id="top_bar">
+            <nav>
+                <div class="hello-customer">
+                    <a>Hello, Customer</a>
+                </div>
+                <div class="nav-links">
+                    <span>
+                        <a href="/user/login_show">Log In</a>
+                    </span>
+                    <span>|</span>
+                    <span>
+                        <a href="/user/signUp_show">Sign Up</a>
+                    </span>
+                    <span>|</span>
+                    <span>
+                        <a href="/admin/login_show">Enter Admin Page</a>
+                    </span>
+                </div>
+            </nav>
+        </div>
+        <div id="banner">
+            <img src="/img/banner.png">
+        </div>
+        <div id="menu">
+            <ul>
+                <li><a href="/" th:class="${categoryID==null?'on':''}">Home</a></li>
+                <th:block th:each="c:${categoryList}">
+                    <li>
+                        <a th:href="@{/sub(categoryID=${c.categoryID})}"
+                           th:text="${c.categoryName}"
+                           th:class="${categoryID==c.categoryID?'on':''}"
+                        >
+                        </a>
+                    </li>
+                </th:block>
+            </ul>
+        </div>
+
+    </div>
+</body>
+</html>

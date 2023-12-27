@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en", xmlns:th="http://www.thymeleaf.com">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Items</title>
+    <link rel="stylesheet" type="text/css" href="/css/admin.css"/>
+    <style type="text/css">
+        .frm{
+            width:600px;
+            margin-top:30px;
+        }
+    </style>
+    <script type="text/javascript">
+        // show img
+        function showImg() {
+            // set visit obj
+            var file = new FileReader();
+            file.onload = function(ev){
+                img.src= ev.target.result;
+            }
+            file.readAsDataURL(file.files[0]);
+        }
+    </script>
+</head>
+<body>
+<div class = "frm">
+    <div class = "title">
+        Edit Items Information
+    </div>
+    <form action = "/admin/items/edit_submit" method="post" enctype="multipart/form-data">
+        <input type="hidden" name="goodsID" th:value="${items.goodsID}">
+        <table>
+            <tr>
+                <td>Items Name</td>
+                <td>
+                    <input type="text" name="goodsName" required ="required" th:value="${items.goodsName}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Items Price</td>
+                <td>
+                    <input type="text" name="price" required ="required" th:value="${items.price}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Place Of Production</td>
+                <td>
+                    <input type="text" name="address" required ="required" th:value="${items.address}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Date Of Production</td>
+                <td>
+                    <input type="text" name="produceDate" required ="required" th:value="${#dates.format(items.produceDate, 'yyyy-MM-dd')}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Picture</td>
+                <td>
+                    <img th:src="${items.picture}" width="80" height="100" id="img"/>
+                    <br/>
+                    <input type="file" name="file" id="file" onchange="showImg()"/>
+                    <input type="hidden" name="picture" th:value="${items.picture}"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Item Category</td>
+                <td>
+                    <select name = "category.categoryID">
+                        <option value="">Select</option>
+                        <option th:each="c:${categoryList}"
+                                th:value="${c.categoryID}"
+                                th:text="${c.categoryName}"
+                        th:selcted="${c.categoryID==items.category.categoryID}">
+                        </option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Update"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.ecom.mapper.ItemsMapper">
+    <resultMap id="goodsMap" type="Items" autoMapping="true">
+        <id column="goodsID" property="goodsID"/>
+        <association property="category" javaType="Category"  autoMapping="true">
+            <id column="categoryID" property= "categoryID"/>
+        </association>
+    </resultMap>
+    <select id = "findAll"  resultMap="goodsMap">
+        select g.goodsID, g.goodsName, g.price, g.address, g.produceDate, g.picture,
+               c.categoryId, c.categoryName
+        from goods g
+        join category c
+        on g.categoryID = c.categoryID
+    </select>
+
+    <select id = "find" parameterType="int" resultMap = "goodsMap">
+        select g.goodsID, g.goodsName, g.price, g.address, g.produceDate, g.picture,
+               c.categoryId, c.categoryName
+        from goods g
+        join category c
+        on g.categoryID = c.categoryID
+        where g.goodsID = #{goodsID}
+    </select>
+
+    <insert id = "toAdd" parameterType="Items">
+        insert into goods
+        (goodsName, price, address, produceDate, picture, categoryID)
+        VALUES
+        (#{goodsName}, #{price}, #{address}, #{produceDate}, #{picture},#{category.categoryID})
+    </insert>
+
+    <update id = "toEdit" parameterType="Items">
+        update goods
+        set goodsName = #{goodsName},
+            price = #{price},
+            address = #{address},
+            produceDate = #{produceDate},
+            picture = #{picture},
+            categoryID = #{category.categoryID}
+        where goodsID = #{goodsID}
+    </update>
+
+
+    <select id = "findRandom" parameterType="int"  resultMap="goodsMap">
+        select g.goodsID, g.goodsName, g.price, g.address, g.produceDate, g.picture,
+               c.categoryId, c.categoryName
+        from goods g
+                 join category c
+                      on g.categoryID = c.categoryID
+        order by rand()
+        limit ${value}
+    </select>
+
+    <select id = "findItemByCategory" parameterType="int"  resultMap="goodsMap">
+        select g.goodsID, g.goodsName, g.price, g.address, g.produceDate, g.picture,
+               c.categoryId, c.categoryName
+        from goods g
+                 join category c
+                      on g.categoryID = c.categoryID
+        where c.categoryID = #{categoryID}
+    </select>
+
+</mapper>

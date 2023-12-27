@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.ecom.mapper.CategoryMapper">
+    <select id = "findAll"  resultType="Category">
+        select categoryID, categoryName
+        from category
+    </select>
+
+    <select id = "find" parameterType="int" resultType = "Category">
+        select categoryID, categoryName
+        from category
+        where categoryID = #{categoryID}
+    </select>
+
+
+    <insert id = "toAdd" parameterType="Category">
+        insert into category
+        (categoryName)
+        VALUES
+        (#{categoryName})
+    </insert>
+
+    <update id = "toUpdate" parameterType="Category">
+        update category
+        set categoryName = #{categoryName}
+        where categoryID = #{categoryID}
+    </update>
+</mapper>

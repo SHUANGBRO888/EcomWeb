@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Category</title>
+    <link rel="stylesheet" type="text/css" href="/css/admin.css"/>
+</head>
+<body>
+<div class = "frm">
+    <div class = "title">
+        Add Category
+    </div>
+    <form action = "/admin/category/add_submit" method="post">
+        <table>
+            <tr>
+                <td>Category Name</td>
+                <td>
+                    <input type="text" name="categoryName" required ="required"/>
+                </td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input type="submit" value="Add"/>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>
