@@ -12,16 +12,18 @@
      a. Allow user to Sign Up / Log in user accounts.
      
      Log In
+     
      ![image](https://github.com/SHUANGBRO888/EcomWeb/assets/110591410/79a51750-6357-47ea-9f30-49fe7a0f9aa4)
 
      Sign Up
+     
      ![image](https://github.com/SHUANGBRO888/EcomWeb/assets/110591410/3b37b357-f1f1-48ea-9865-4b5d1398f1e5)
 
      b. Specific Page for Admin Log In.
      
      ![image](https://github.com/SHUANGBRO888/EcomWeb/assets/110591410/71eb437d-4208-4ef4-b6b1-874103bba75d)
 
-  2. Web Front Page
+  3. Web Front Page
  
      a. Showcase the website navbar, banner, Category, Items.
 
@@ -33,7 +35,7 @@
 
      ![image](https://github.com/SHUANGBRO888/EcomWeb/assets/110591410/9791f530-af00-4cae-a5ac-e67a381bc45f)
 
-  3. Web Backend Page
+  4. Web Backend Page
  
      You can do CRUD about the items and category on the front.
 
