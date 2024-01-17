@@ -3,11 +3,11 @@
 - Backend: SpringBoot, Maven, MyBatis, MySql
 - Frontend: HTML/CSS/JS
 
-- Objectives:
+## Objectives:
 
   Provide the website for small business owner to present their merchandises.
  
-- Features:
+## Features:
   
   1. User Authentication
  
@@ -65,7 +65,19 @@
 
      ![image](https://github.com/SHUANGBRO888/EcomWeb/assets/110591410/83a72dcb-f233-4da4-9b00-70824a7ab9f6)
 
-      
+## Instructions on how to set up and run the application.
+
+
+```bash
+
+# Use Mave to Load pom to install dependency
+
+# Run the src/main/java/org/ecom/Main.java
+
+# Open: http://localhost:8080/
+
+```
+
 
 
 
