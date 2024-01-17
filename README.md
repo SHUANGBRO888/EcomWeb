@@ -3,7 +3,9 @@
 - Backend: SpringBoot, Maven, MyBatis, MySql
 - Frontend: HTML/CSS/JS
 
-- Objectives: 
+- Objectives:
+
+  Provide the website for small business owner to present their merchandises.
  
 - Features:
   
